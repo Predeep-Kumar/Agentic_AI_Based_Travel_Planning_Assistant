@@ -47,7 +47,7 @@ cd Agentic_AI_Based_Travel_Planning_Assistant
 
 1. Creating
   ```
-  python -m venv venv
+  python3 -m venv venv
   ```
 
 2. Activating The enviroment
@@ -107,7 +107,7 @@ cd Agentic_AI_Based_Travel_Planning_Assistant
 ### 6. Run the Application
 
   ```
-  streamlit run main.py
+   streamlit run streamlit_app.py
   ```
 
 ---
