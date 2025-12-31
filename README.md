@@ -31,6 +31,52 @@ The system plans:
 ---
 ---
 
+## 📁 Project Structure
+
+  ```
+  Agentic_AI_Based_Travel_Planning_Assistant/
+  │
+  ├── agent/
+  │   ├── __init__.py
+  │   ├── intent_manager.py
+  │   ├── intent_parser.py
+  │   ├── llm_loader.py
+  │   └── travel_agent.py
+  │
+  ├── assets/
+  │   └── styles.css
+  │
+  ├── data/
+  │   ├── flights.json
+  │   ├── hotels.json
+  │   └── places.json
+  │
+  ├── llm_models/
+  │   ├── phi-3-mini-4k-instruct-q4.gguf
+  │   ├── qwen2.5-3b-instruct-q4_k_m.gguf
+  │
+  ├── pdf/
+  │   └── trip_pdf_generator.py
+  │
+  ├── tools/
+  │   ├── budget_tool.py
+  │   ├── flight_tool.py
+  │   ├── hotel_tool.py
+  │   ├── places_tool.py
+  │   └── weather_lookup_tool.py
+  │
+  ├── utils/
+  │   ├── flight_city_extractor.py
+  │   └── helpers.py
+  │
+  ├── streamlit_app.py
+  ├── requirements.txt
+  └── README.md
+  ```
+
+---
+---
+
 ## ⚙️ Installation & Setup ( Step by Step)
 
 ### 1. Clone the Repository
@@ -113,51 +159,6 @@ cd Agentic_AI_Based_Travel_Planning_Assistant
 ---
 ---
 
-## 📁 Project Structure
-
-  ```
-  Agentic_AI_Based_Travel_Planning_Assistant/
-  │
-  ├── agent/
-  │   ├── __init__.py
-  │   ├── intent_manager.py
-  │   ├── intent_parser.py
-  │   ├── llm_loader.py
-  │   └── travel_agent.py
-  │
-  ├── assets/
-  │   └── styles.css
-  │
-  ├── data/
-  │   ├── flights.json
-  │   ├── hotels.json
-  │   └── places.json
-  │
-  ├── llm_models/
-  │   ├── phi-3-mini-4k-instruct-q4.gguf
-  │   ├── qwen2.5-3b-instruct-q4_k_m.gguf
-  │
-  ├── pdf/
-  │   └── trip_pdf_generator.py
-  │
-  ├── tools/
-  │   ├── budget_tool.py
-  │   ├── flight_tool.py
-  │   ├── hotel_tool.py
-  │   ├── places_tool.py
-  │   └── weather_lookup_tool.py
-  │
-  ├── utils/
-  │   ├── flight_city_extractor.py
-  │   └── helpers.py
-  │
-  ├── streamlit_app.py
-  ├── requirements.txt
-  └── README.md
-  ```
-
----
----
 
  ## 🧠 System Architecture (High Level)
 
