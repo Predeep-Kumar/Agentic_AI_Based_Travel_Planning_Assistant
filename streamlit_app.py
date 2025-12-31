@@ -62,7 +62,7 @@ preload_local_models()
 
 # PAGE CONFIG
 st.set_page_config(
-    page_title="AI Travel Planner",
+    page_title="AI Travel Planner Assistant",
     page_icon="✈️",
     layout="wide",
     initial_sidebar_state="expanded" 
@@ -146,8 +146,8 @@ st.markdown('<div class="app-content">', unsafe_allow_html=True)
 
 st.markdown("""
 <div style="text-align:center; padding:20px;">
-<h1>✈️ AI Travel Planner</h1>
-<p class="glass-sub">ChatGPT-style trip planning with intelligence</p>
+<h1>✈️ AI Travel Planner Assistant</h1>
+<p class="glass-sub">An advanced agentic AI system that intelligently plans end-to-end travel experiences from natural language using reasoning, tools, and real-time intelligence — from flights and hotels to budgets, weather insights, and day-wise itineraries.</p>
 </div>
 """, unsafe_allow_html=True)
 
@@ -158,7 +158,7 @@ tab_chat, tab_form = st.tabs(["CHAT MODE", "FORM MODE"])
 with st.sidebar:
 
     # SIDEBAR HEADER
-    st.markdown("## ✈️ AI Travel Planner")
+    st.markdown("## ✈️ AI Travel Planner Assistant")
     st.caption("Smart trip planning assistant")
 
     st.divider()
@@ -1188,7 +1188,7 @@ with tab_chat:
         st.session_state.messages.append({
             "role": "assistant",
             "content": (
-                "👋 Hey! I’m your AI Travel Planner ✈️\n\n"
+                "👋 Hey! I’m your AI Travel Planner Assistant ✈️\n\n"
                 "I can help you plan flights, hotels, budgets, weather, "
                 "and a complete day-wise itinerary — all in one place.\n\n"
                 "👉 To get started, just type plan a trip"
