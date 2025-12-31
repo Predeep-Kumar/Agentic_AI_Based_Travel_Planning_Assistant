@@ -1,0 +1,557 @@
+/* =====================================================
+   APP BOOT SKELETON — ULTRA SMOOTH
+===================================================== */
+
+#app-skeleton {
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle at top, #0f172a, #020617);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* smooth entry */
+    opacity: 0;
+    animation: splashFadeIn 0.6s ease-out forwards;
+}
+
+/* container */
+.splash-skeleton {
+    width: 70%;
+    max-width: 900px;
+}
+
+/* skeleton cards */
+.splash-card {
+    height: 120px;
+    margin-bottom: 26px;
+    border-radius: 24px;
+    background: rgba(255,255,255,0.08);
+    position: relative;
+    overflow: hidden;
+}
+
+/* shimmer */
+.splash-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    transform: translateX(-120%);
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,0.22),
+        transparent
+    );
+    animation: splashShimmer 1.6s ease-in-out infinite;
+}
+
+/* fade animations */
+@keyframes splashFadeIn {
+    to { opacity: 1; }
+}
+
+@keyframes splashFadeOut {
+    to { opacity: 0; visibility: hidden; }
+}
+
+@keyframes splashShimmer {
+    to { transform: translateX(120%); }
+}
+
+/* =====================================================
+   APP FADE-IN (REAL UI)
+===================================================== */
+
+.app-content {
+    opacity: 0;
+    animation: appFadeIn 0.6s ease-out forwards;
+    animation-delay: 0.1s;
+}
+
+@keyframes appFadeIn {
+    to { opacity: 1; }
+}
+
+/* ================================
+   STREAMLIT TAB LINE FIX (NO FLASH)
+   ================================ */
+
+/* Remove tab bottom border & line */
+div[data-testid="stTabs"],
+div[data-testid="stTabs"] > div,
+div[data-testid="stTabs"] div[role="tablist"],
+div[data-baseweb="tab-border"] {
+    border-bottom: none !important;
+    box-shadow: none !important;
+}
+
+/* Kill any horizontal rule that may appear */
+hr {
+    display: none !important;
+}
+
+/* Prevent flash of unstyled tab line */
+div[data-testid="stTabs"] {
+    opacity: 0;
+    animation: tabsFadeIn 0.001s ease-in forwards;
+}
+
+@keyframes tabsFadeIn {
+    to { opacity: 1; }
+}
+
+
+/* =====================================================
+   GLOBAL BACKGROUND
+===================================================== */
+html, body, [data-testid="stApp"] {
+    background: radial-gradient(circle at top, #0b1026, #020617);
+    color: #f8fafc;
+}
+
+/* =====================================================
+   CHAT UI
+===================================================== */
+.chat-container {
+    max-width: 1000px;
+    margin: auto;
+}
+
+.chat-bubble {
+    padding: 14px 18px;
+    border-radius: 16px;
+    margin: 10px 0;
+    max-width: 75%;
+    line-height: 1.6;
+    color: #ffffff;
+}
+
+.assistant {
+    background: rgba(15, 23, 42, 0.65);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+}
+
+.user {
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    margin-left: auto;
+}
+
+/* =====================================================
+   GLASS CARDS (BASE)
+===================================================== */
+.glass-card {
+    background: rgba(15, 23, 42, 0.72);
+    -webkit-backdrop-filter: blur(18px);
+    backdrop-filter: blur(18px);
+    border-radius: 24px;
+    padding: 22px;
+    border: 1px solid rgba(148, 163, 184, 0.18);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.45);
+    margin-bottom: 22px;
+    color: #ffffff;
+}
+
+.glass-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.glass-sub {
+    color: #cbd5f5;
+    font-size: 14px;
+}
+
+.metric-big {
+    font-size: 30px;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+/* =====================================================
+   FLIGHT BADGES
+===================================================== */
+.flight-badge {
+    padding: 5px 12px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 700;
+    background: rgba(255,255,255,0.12);
+    color: #ffffff;
+    transition: all 0.3s ease;
+}
+
+.badge-cheapest {
+    background: rgba(0,255,140,0.22);
+    color: #4cffb0;
+}
+
+.badge-fastest {
+    background: rgba(255,200,0,0.22);
+    color: #ffd166;
+}
+
+
+/* =====================================================
+   WEATHER
+===================================================== */
+.weather-card {
+    background: rgba(15, 23, 42, 0.65);
+    -webkit-backdrop-filter: blur(18px);
+    backdrop-filter: blur(18px);
+    border-radius: 24px;
+    padding: 22px 18px;
+    text-align: center;
+    border: 1px solid rgba(148,163,184,0.18);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.08),
+                0 25px 50px rgba(0,0,0,0.45);
+    color: #ffffff;
+}
+
+.weather-date {
+    font-size: 13px;
+    color: #cbd5f5;
+}
+
+.weather-icon-big {
+    font-size: 52px;
+    margin: 12px 0;
+}
+
+.weather-condition {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.weather-meta {
+    font-size: 13px;
+    color: #94a3b8;
+    line-height: 1.55;
+}
+
+/* =====================================================
+   BUDGET
+===================================================== */
+.budget-card {
+    padding: 24px;
+}
+
+.budget-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 18px;
+    color: #ffffff;
+}
+
+.budget-title {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.budget-desc {
+    font-size: 13px;
+    opacity: 0.8;
+}
+
+.budget-amount {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.per-person,
+.per-person-total {
+    font-size: 12px;
+    opacity: 0.8;
+}
+
+.budget-divider {
+    height: 1px;
+    background: linear-gradient(
+        to right,
+        transparent,
+        rgba(255,255,255,0.25),
+        transparent
+    );
+    margin: 20px 0;
+}
+
+.budget-total {
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+    font-weight: 900;
+}
+
+/* =====================================================
+   TIMELINE
+===================================================== */
+.glass-timeline {
+    position: relative;
+    padding-left: 42px;
+    margin-top: 24px;
+}
+
+.glass-timeline::before {
+    content: "";
+    position: absolute;
+    left: 18px;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(
+        to bottom,
+        rgba(76,255,176,0.15),
+        rgba(76,255,176,0.9),
+        rgba(76,255,176,0.15)
+    );
+}
+
+.timeline-card {
+    background: rgba(255,255,255,0.08);
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+    border-radius: 18px;
+    padding: 18px 22px;
+    color: #ffffff;
+    box-shadow: 0 8px 28px rgba(0,0,0,0.25);
+}
+
+.timeline-title {
+    font-size: 16px;
+    font-weight: 800;
+}
+
+.timeline-date {
+    font-size: 12px;
+    opacity: 0.7;
+}
+
+.timeline-text {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* =====================================================
+   HOVER EFFECTS
+===================================================== */
+.glass-card:hover,
+.weather-card:hover,
+.flight-badge:hover {
+    transform: translateY(-4px) scale(1.01);
+    transition: all 0.3s ease;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+}
+
+/* ======================================================
+   STREAMLIT TABS — CENTERED + REMOVE BOTTOM LINE (FINAL)
+   ====================================================== */
+
+/* Remove the long horizontal bottom line */
+div[data-testid="stTabs"],
+div[data-testid="stTabs"] > div,
+div[data-testid="stTabs"] div[role="tablist"] {
+    border-bottom: none !important;
+    box-shadow: none !important;
+}
+
+/* Kill BaseWeb underline container */
+div[data-baseweb="tab-border"] {
+    display: none !important;
+}
+
+/* Extra safety */
+hr {
+    display: none !important;
+}
+
+/* ------------------------------------------------------
+   CENTER THE TABS (ONLY THE BUTTONS, NOT CONTENT)
+------------------------------------------------------ */
+div[data-testid="stTabs"] div[role="tablist"] {
+    display: flex !important;
+    justify-content: center !important;
+    gap: 28px !important;
+}
+
+.flight-row,
+.hotel-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 8px 0;
+    color: #ffffff;
+}
+
+
+/* =====================================================
+   CHATGPT-STYLE CHAT LAYOUT (STREAMLIT-NATIVE)
+===================================================== */
+
+/* Make main app a vertical flex container */
+section.main > div {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Tabs content should stretch */
+section.main div[data-testid="stTabs"] {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Chat tab content stretches fully */
+section.main div[data-testid="stTabs"] > div {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Chat history grows and scrolls */
+.chat-history {
+    flex-grow: 1;
+}
+
+/* Chat input stays at bottom INSIDE layout */
+div[data-testid="stChatInput"] {
+    margin-top: auto !important;
+    padding-bottom: 1.2rem !important;
+}
+
+/* Remove Streamlit default bottom spacing */
+.block-container {
+    padding-bottom: 1rem !important;
+}
+
+/* =========================================
+   FLIGHT COLUMN HEADERS (Outbound / Return)
+========================================= */
+.flight-column-title {
+    color: #ffffff;
+    font-size: 22px;          /* increased size */
+    font-weight: 800;
+    letter-spacing: 0.4px;
+    text-align: center;       /* center align */
+    margin-bottom: 14px;
+}
+
+
+
+
+/* -----------------------------
+   LOCK SIDEBAR WIDTH COMPLETELY
+------------------------------*/
+
+/* Sidebar container */
+section[data-testid="stSidebar"] {
+    width: 320px !important;
+    min-width: 320px !important;
+    max-width: 320px !important;
+    flex: 0 0 320px !important;
+    overflow: hidden !important;
+}
+
+/* ------------------------------------
+   WHEN SIDEBAR IS COLLAPSED
+-------------------------------------*/
+
+/* Sidebar hidden */
+section[data-testid="stSidebar"][aria-expanded="false"] {
+    width: 0 !important;
+    min-width: 0 !important;
+    display: none !important;
+}
+
+/* Main content expands fully */
+section[data-testid="stSidebar"][aria-expanded="false"]
+~ div[data-testid="stAppViewContainer"] {
+    margin-left: 0 !important;
+    width: 100% !important;
+}
+
+/* Remove ghost spacing */
+div[data-testid="stSidebarResizer"] {
+    display: none !important;
+}
+
+/* =====================================================
+   iOS-STYLE PILL TABS (STREAMLIT)
+===================================================== */
+
+/* Remove bottom border everywhere */
+div[data-testid="stTabs"],
+div[data-testid="stTabs"] > div,
+div[data-testid="stTabs"] div[role="tablist"] {
+    border-bottom: none !important;
+    box-shadow: none !important;
+}
+/* Kill BaseWeb active indicator (THIS is the red line) */
+div[data-baseweb="tab-border"],
+div[data-baseweb="tab-highlight"] {
+    display: none !important;
+    height: 0 !important;
+}
+
+/* Remove any ::after underline */
+div[data-testid="stTabs"] button[role="tab"]::after {
+    display: none !important;
+    content: none !important;
+}
+
+/* Extra safety: remove focus/active outlines */
+div[data-testid="stTabs"] button[role="tab"]:focus,
+div[data-testid="stTabs"] button[role="tab"]:active {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+
+/* Tab container (pill background) */
+div[data-testid="stTabs"] div[role="tablist"] {
+    border-radius: 999px;
+    padding: 6px;
+    gap: 6px !important;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.12),
+                0 8px 24px rgba(0,0,0,0.35);
+}
+
+/* Individual tab buttons */
+div[data-testid="stTabs"] button[role="tab"] {
+    border-radius: 999px !important;
+    padding: 8px 20px !important;
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.7);
+    background: transparent !important;
+    transition: all 0.25s ease;
+}
+
+/* Hover (inactive tabs) */
+div[data-testid="stTabs"] button[role="tab"]:hover {
+    background: rgba(255,255,255,0.12) !important;
+    color: #ffffff;
+}
+
+/* ACTIVE TAB */
+div[data-testid="stTabs"] button[aria-selected="true"] {
+    background: linear-gradient(
+        135deg,
+        rgba(255,255,255,0.25),
+        rgba(255,255,255,0.15)
+    ) !important;
+    color: #ffffff !important;
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.25),
+        0 6px 18px rgba(0,0,0,0.35);
+}
+
+/* Remove Streamlit default focus outline */
+div[data-testid="stTabs"] button:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}

@@ -1,0 +1,19 @@
+# Core Python & App
+streamlit
+requests
+python-dotenv
+pandas
+
+# Hugging Face
+huggingface-hub
+
+# LangChain (modular – NO meta package)
+langchain-core
+langchain-community
+langchain-huggingface
+
+# Local LLM runtime
+llama-cpp-python
+
+
+reportlab
