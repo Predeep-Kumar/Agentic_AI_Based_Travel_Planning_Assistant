@@ -6,7 +6,7 @@ The system plans:
 - Flights (one-way / round-trip)
 - Hotels
 - Places to visit
-- Weather forecasts
+- Weather forecasts (Using Open-Meteo)
 - Budget breakdown (total + per person)
 - Day-wise itinerary
 - Downloadable PDF summary
@@ -402,6 +402,8 @@ cd Agentic_AI_Based_Travel_Planning_Assistant
   
   ### Hugging Face API 
   
+  we are using ```Mistral-7B-Instruct-v0.2```
+  
   We need this API to call the model online from Hugging Face. If it’s not available, the system won’t be able to fetch the model from Hugging Face and will fall back to using the locally downloaded models instead.
   
   1. Create an account on Hugging Face
@@ -470,7 +472,7 @@ Adapt itineraries dynamically based on expected weather conditions to improve co
 Provide intelligent packing suggestions based on destination, trip duration, and expected activities.
 
 - 9️⃣ Enhanced User Interface & Visual Experience
-Further improve the UI with richer visuals, smoother animations, and a more immersive travel-planning experience.
+Further improve the UI with richer visuals, smoother animations, and a more immersive travel-planning experience. Aso add ing Auto and smooth scrolling.
 
 - 🔟 Interactive Maps & Route Visualization
 Visualize routes, destinations, hotels, and attractions on interactive maps to give users a clearer understanding of their journey.
@@ -488,7 +490,7 @@ Allow users to save trips, revisit previous plans, and build a personal travel h
 Provide simple explanations for recommendations to help users understand why specific options were chosen.
 
 - 1️⃣5️⃣ Continuous Intelligence Improvement
-Gradually enhance the AI’s reasoning capabilities to make trip planning more accurate, flexible, and user-friendly.
+Gradually enhance the AI’s reasoning capabilities to make trip planning more accurate, flexible, and user-friendly. Also adding Fuzzy spelling check.
 
 ---
 ---
