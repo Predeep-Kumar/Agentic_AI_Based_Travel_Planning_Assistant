@@ -14,6 +14,5 @@ langchain-huggingface
 
 # Local LLM runtime
 llama-cpp-python
-dotenv
 
 reportlab
