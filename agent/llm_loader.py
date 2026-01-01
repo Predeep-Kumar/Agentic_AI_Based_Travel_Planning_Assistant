@@ -100,6 +100,17 @@ def preload_local_models():
 # MAIN LOADER
 
 def load_llm(force_local: bool = False, local_model_choice: str | None = None):
+
+
+    preload = preload_local_models()
+    models = preload["models"]
+
+    if force_local:
+        if local_model_choice not in models:
+            raise RuntimeError(
+                f"Requested model '{local_model_choice}' is not available"
+            )
+        return models[local_model_choice]
     hf_token = os.getenv("HUGGINGFACEHUB_API_TOKEN")
 
  
