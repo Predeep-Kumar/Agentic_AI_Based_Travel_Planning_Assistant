@@ -93,6 +93,16 @@ cd Agentic_AI_Based_Travel_Planning_Assistant
 
 1. Creating
   ```
+  py -m venv venv
+  ```
+
+or
+
+  ```
+  python -m venv venv
+  ```
+or 
+  ```
   python3 -m venv venv
   ```
 
