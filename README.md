@@ -163,7 +163,7 @@ or
 ### 6. Run the Application
 
   ```
-   streamlit run streamlit_app.py
+  python -m streamlit run streamlit_app.py
   ```
 
 ---
