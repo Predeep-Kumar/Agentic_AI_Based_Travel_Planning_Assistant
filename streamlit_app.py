@@ -56,10 +56,8 @@ if "form_result" not in st.session_state:
 if "chat_locked" not in st.session_state:
     st.session_state.chat_locked = False
 
-if "freeze_main_render" not in st.session_state:
-    st.session_state.freeze_main_render = False
-    
-
+if "is_downloading" not in st.session_state:
+    st.session_state.is_downloading = False
     
     
 # 🔥 Load local models ONCE per server
@@ -294,6 +292,8 @@ with st.sidebar:
 
 
 def section_loader(text, delay=2):
+    if st.session_state.get("is_downloading"):
+        return   
     placeholder = st.empty()
 
     placeholder.markdown(
@@ -1155,23 +1155,31 @@ def render_full_trip_ui(result):
     
     # ALWAYS RENDER DAY-WISE ITINERARY
     render_glass_timeline(
-        result["TRIP_PLAN"]["DAY_WISE_ITINERARY"],
-        typing=not st.session_state.itinerary_typed
+    result["TRIP_PLAN"]["DAY_WISE_ITINERARY"],
+    typing=(
+        not st.session_state.itinerary_typed
+        and not st.session_state.is_downloading
     )
-
+)
     st.session_state.itinerary_typed = True
-    from pdf.trip_pdf_genertor import generate_trip_pdf
 
-    pdf_path = "trip_plan.pdf"
-    generate_trip_pdf(result, pdf_path)
+    if "trip_pdf_bytes" not in st.session_state:
+        from pdf.trip_pdf_genertor import generate_trip_pdf
+
+        pdf_path = "trip_plan.pdf"
+        generate_trip_pdf(result, pdf_path)
+
+        with open(pdf_path, "rb") as f:
+            st.session_state.trip_pdf_bytes = f.read()
     st.download_button(
-        "📄 Download Trip PDF",
-        data=open(pdf_path, "rb"),
-        file_name="AI_Trip_Plan.pdf",
-        mime="application/pdf"
-    )
-
-    
+    label="📄 Download Trip PDF",
+    data=st.session_state.trip_pdf_bytes,
+    file_name="AI_Trip_Plan.pdf",
+    mime="application/pdf",
+    on_click=lambda: st.session_state.update({"is_downloading": True})
+)
+    st.session_state.is_downloading = False
+        
         
 with tab_chat:
     st.session_state.active_mode = "chat"
